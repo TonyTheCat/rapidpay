@@ -1,0 +1,16 @@
+{
+  "appenders": [
+    {
+      "type": "console",
+      "level": "ALL"
+    },
+    {
+      "type": "file",
+      "filename": "logs/rapidpay.log",
+      "maxLogSize": 30720,
+      "backups": 20,
+      "level": "ALL"
+    }
+  ],
+  "replaceConsole": false
+}

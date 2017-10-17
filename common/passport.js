@@ -1,7 +1,7 @@
-var passport = require('passport');
-var model = require0('../models/users');
-var _ = require("lodash");
-var log = require('./logger').getLogger('common/passport');
+const passport = require('passport');
+const model = require0('../models/users');
+const _ = require("lodash");
+const log = require('./logger').getLogger('common/passport');
 
 /* add ensureAuthenticated method to passport */
 _.extend(passport, {
