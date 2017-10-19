@@ -3,7 +3,6 @@ const router = express.Router();
 const log = require('../common/logger').getLogger('router/users');
 const passport = require("../common/passport");
 const errors = require('../common/errors/errors');
-const validator = require('../common/validator');
 const _ = require("lodash");
 
 // route /users

@@ -5,11 +5,8 @@ const log = require('./logger').getLogger('common/passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 // config simple strategy used by app
-passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password'}, // change default fileds names
+passport.use(new LocalStrategy(
     (username, password, done) => {
-        log.debug(username, password);
         User.findOne({ username: username }, (err, user) => {
             if (err) { return done(err); }
             if (!user) { return done(null, false); }
@@ -17,7 +14,8 @@ passport.use(new LocalStrategy({
             return done(null, user);
         });
     }
-));
+    )
+);
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
