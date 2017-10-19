@@ -2,10 +2,14 @@ const passport = require('passport');
 const model = require('../models/users');
 const _ = require("lodash");
 const log = require('./logger').getLogger('common/passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 // config simple strategy used by app
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password'}, // change default fileds names
     (username, password, done) => {
+        log.debug(username, password);
         User.findOne({ username: username }, (err, user) => {
             if (err) { return done(err); }
             if (!user) { return done(null, false); }
